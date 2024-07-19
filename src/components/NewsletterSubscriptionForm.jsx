@@ -14,7 +14,7 @@ function NewsletterSubscriptionForm() {
     e.preventDefault();
 
     const url = "https://api.brevo.com/v3/contacts";
-    const apiKey = "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";
+    const apiKey = "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";
     const listId = 7;
 
     try {
