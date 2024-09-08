@@ -12,40 +12,37 @@ function NewsletterSubscriptionForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const url = "https://api.brevo.com/v3/contacts";
-    const apiKey = "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";
-    const listId = 7;
-
+  
     try {
       const response = await axios.post(
-        url,
+        "https://api.brevo.com/v3/contacts",
         {
           email: email,
-          listIds: [listId],
+          listIds: [7], // Assuming the listId is 7
         },
         {
           headers: {
             "Content-Type": "application/json",
-            "api-key": apiKey,
+            "api-key": "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",
           },
         }
       );
-
+  
       console.log(response);
-
+  
       if (response.data.id) {
         setMessage("Thanks, you'll receive notifications now onwards.");
       } else {
         setMessage("Something went wrong.");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error: ", error.response?.data || error.message);
       setMessage("Something went wrong.");
     }
-
+  
     setEmail("");
   };
+  
 
   return (
     <>
